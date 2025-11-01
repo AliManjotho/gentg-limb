@@ -4,6 +4,9 @@ A reference implementation of **GenTG-Limb** — a prior-free monocular 3D human
 
 > Pipeline: Video → 2D keypoints → **TGT** (coarse 3D + uncertainty) → **GPC** (selective diffusion correction) → final 3D sequence.
 
+![teaser](assets/fig-model.png)
+
+
 ## Features
 - Joint+limb tokenization with relative temporal attention
 - Multi-loss training: reprojection, MPJPE, limb-length smoothness, L/R symmetry
