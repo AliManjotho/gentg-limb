@@ -1,68 +1,146 @@
-# GenTG-Limb: Generative Temporal Graph Transformers for Prior-Free 3D Human Pose
+# 🧠 GenTG-Limb: Generative Temporal Graph-Limb Transformer for 3D Human Pose Estimation
 
-A reference implementation of **GenTG-Limb** — a prior-free monocular 3D human pose pipeline that combines a **Temporal Graph Transformer (TGT)** with a **Generative Pose Corrector (GPC)** based on diffusion.
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.3%2B-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Tests](https://github.com/yourname/gentg-limb/actions/workflows/ci.yml/badge.svg)
 
-> Pipeline: Video → 2D keypoints → **TGT** (coarse 3D + uncertainty) → **GPC** (selective diffusion correction) → final 3D sequence.
+---
 
-![teaser](assets/fig-model.png)
+## 🌐 Overview
 
+**GenTG-Limb** is a unified framework for *monocular 3D human pose estimation* that combines:
+- a **Temporal Graph Transformer (TGT)** for deterministic 3D lifting, and  
+- a **Generative Pose Corrector (GPC)** based on *diffusion models* for selective uncertainty-aware refinement.
 
-## Features
-- Joint+limb tokenization with relative temporal attention
-- Multi-loss training: reprojection, MPJPE, limb-length smoothness, L/R symmetry
-- Diffusion-based **selective** correction guided by uncertainty
-- Modular configs, clean scripts, metrics & tests, export to ONNX/TorchScript
+<p align="center">
+  <img src="docs/images/pipeline_overview.png" width="600" alt="Pipeline Overview">
+</p>
 
-## Install
+### Pipeline
+```
+Video → 2D keypoints → TGT → coarse 3D pose + uncertainty → GPC → refined 3D sequence
+```
+
+---
+
+## ✨ Features
+
+- Transformer-based 3D lifting using joint + limb tokenization  
+- Diffusion-based refinement guided by uncertainty  
+- Modular YAML configs for datasets, models, and training  
+- Selective resampling of uncertain joints only  
+- Evaluation + Visualization + Profiling utilities  
+- Full test suite and CI support
+
+---
+
+## 📦 Installation
+
+### 1️⃣ Clone and setup environment
 ```bash
-# (Optional) conda env
-conda create -n gentg python=3.10 -y && conda activate gentg
-
-# Install PyTorch (choose CUDA build you need)
-# See https://pytorch.org/get-started/ for the exact command for your system
+git clone https://github.com/yourname/gentg-limb.git
+cd gentg-limb
 pip install -r requirements.txt
 ```
 
-> Note: For **torch-geometric** on CUDA, follow the official wheel instructions if pip resolves a CPU-only build on your system.
+### 2️⃣ Optional dependencies
+```bash
+pip install matplotlib torch-geometric tensorboard
+```
 
-## Quickstart
-Prepare datasets (see `data/README.md`), then train TGT:
+### 3️⃣ Verify installation
+```bash
+pytest -q
+```
+
+---
+
+## 📂 Repository Structure
+```
+gentg-limb/
+├─ configs/
+├─ data/
+├─ datasets/
+├─ models/
+├─ losses/
+├─ utils/
+├─ scripts/
+├─ notebooks/
+├─ tests/
+└─ docs/
+```
+
+---
+
+## 🏋️ Training
 ```bash
 python scripts/train_tgt.py --config configs/train/tgt_base.yaml
-```
-
-Train GPC conditioned on saved TGT predictions:
-```bash
 python scripts/train_gpc.py --config configs/train/gpc_base.yaml
-```
-
-Optional end-to-end finetuning:
-```bash
 python scripts/finetune_e2e.py --config configs/train/e2e_finetune.yaml
 ```
 
-Run inference on a sequence:
+---
+
+## 🎥 Inference
 ```bash
-python scripts/infer.py --config configs/infer/offline_seq.yaml --input path/to/seq.npz
+python scripts/infer.py --config configs/infer/offline_seq.yaml --input data/h36m/sample_seq.npz
 ```
 
-## Repo structure
-See the root-level scaffold for directories. Each module has docstrings and unit tests under `tests/`.
+Results are saved to `outputs/infer_result.npz`.
 
-![teaser](assets/qualitative.png)
-
-## Citation
+Visualize:
+```bash
+python scripts/visualize_seq.py --npz outputs/infer_result.npz --out viz/
 ```
-@inproceedings{memon2025gentglimb,
-author = {Anam Memon and Qasim Ali Arain and Nasrullah Pirzada and Muhammad Akram Shaikh and Ali Asghar Manjotho},
-title = {GenTG-Limb: Generative Temporal Graph Transformers for Prior-Free 3D Human Pose},
-booktitle = {In Proceedings of the First International Conference on Innovations in Information and Communication Technologies (IICT'26), Jan 15-17, 2026},
-address = {Jamshoro, Pakistan},
-publisher = {IEEE},
-year = {2026}
+
+---
+
+## 📈 Evaluation
+```bash
+python -m metrics.eval_h36m
+```
+
+Implements MPJPE, P-MPJPE, 3DPCK, and AUC metrics.
+
+---
+
+## ⚙️ Configuration
+All configs are YAML-based. See [`docs/configuration_reference.md`](docs/configuration_reference.md).
+
+---
+
+## 🧪 Testing
+```bash
+pytest -v
+```
+
+Covers models, losses, metrics, and data pipelines.
+
+---
+
+## 📘 Notebooks
+| Notebook | Purpose |
+|-----------|----------|
+| 00_quickstart.ipynb | Run a demo |
+| 01_data_checks.ipynb | Inspect datasets |
+| 02_train_tgt_logs.ipynb | Visualize TGT logs |
+| 03_train_gpc_logs.ipynb | GPC training logs |
+| 04_eval_plots.ipynb | Evaluation plots |
+
+---
+
+## 🧮 Citation
+```bibtex
+@article{gentg2025,
+  title={GenTG-Limb: Generative Temporal Graph-Limb Transformer for 3D Human Pose Estimation},
+  author={Your Name et al.},
+  journal={arXiv preprint arXiv:2501.xxxxx},
+  year={2025}
 }
 ```
 
-## License
-This code is distributed under an [MIT LICENSE](LICENSE).
+---
 
+## 🛠️ License
+MIT License. See [LICENSE](LICENSE).
