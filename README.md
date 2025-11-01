@@ -3,9 +3,10 @@
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.3%2B-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Tests](https://github.com/yourname/gentg-limb/actions/workflows/ci.yml/badge.svg)
 
 ---
+
+![teaser](assets/fig-model.png)
 
 ## 🌐 Overview
 
@@ -96,6 +97,9 @@ python scripts/visualize_seq.py --npz outputs/infer_result.npz --out viz/
 
 ---
 
+![teaser](assets/qualitative.png)
+
+
 ## 📈 Evaluation
 ```bash
 python -m metrics.eval_h36m
@@ -132,11 +136,13 @@ Covers models, losses, metrics, and data pipelines.
 
 ## 🧮 Citation
 ```bibtex
-@article{gentg2025,
-  title={GenTG-Limb: Generative Temporal Graph-Limb Transformer for 3D Human Pose Estimation},
-  author={Your Name et al.},
-  journal={arXiv preprint arXiv:2501.xxxxx},
-  year={2025}
+@inproceedings{memon2025gentglimb,
+author = {Anam Memon and Qasim Ali Arain and Nasrullah Pirzada and Muhammad Akram Shaikh and Ali Asghar Manjotho},
+title = {GenTG-Limb: Generative Temporal Graph Transformers for Prior-Free 3D Human Pose},
+booktitle = {In Proceedings of the First International Conference on Innovations in Information and Communication Technologies (IICT'26), Jan 15-17, 2026},
+address = {Jamshoro, Pakistan},
+publisher = {IEEE},
+year = {2026}
 }
 ```
 
