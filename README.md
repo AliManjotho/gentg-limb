@@ -49,6 +49,8 @@ python scripts/infer.py --config configs/infer/offline_seq.yaml --input path/to/
 ## Repo structure
 See the root-level scaffold for directories. Each module has docstrings and unit tests under `tests/`.
 
+![teaser](assets/qualitative.png)
+
 ## Citation
 ```
 @inproceedings{memon2025gentglimb,
