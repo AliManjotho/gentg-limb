@@ -5,9 +5,6 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
-
-![teaser](assets/fig-model.png)
-
 ## 🌐 Overview
 
 **GenTG-Limb** is a unified framework for *monocular 3D human pose estimation* that combines:
@@ -15,7 +12,7 @@
 - a **Generative Pose Corrector (GPC)** based on *diffusion models* for selective uncertainty-aware refinement.
 
 <p align="center">
-  <img src="docs/images/pipeline_overview.png" width="600" alt="Pipeline Overview">
+  <img src="assets/fig-model.png" width="600" alt="Pipeline Overview">
 </p>
 
 ### Pipeline
