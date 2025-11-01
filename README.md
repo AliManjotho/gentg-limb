@@ -50,7 +50,15 @@ python scripts/infer.py --config configs/infer/offline_seq.yaml --input path/to/
 See the root-level scaffold for directories. Each module has docstrings and unit tests under `tests/`.
 
 ## Citation
-If you use this codebase, please cite the original paper and this repo. See `CITATION.cff`.
+```
+@inproceedings{memon2025gentglimb,
+author = {Anam Memon and Qasim Ali Arain and Ali Asghar Manjotho},
+title = {GenTG-Limb: Generative Temporal Graph Transformers for Prior-Free 3D Human Pose},
+title = {1st International Conference on Innovations in Information and Communication Technologies (IICT'26), Jan 15-17, 2026},
+year = {2026}
+}
+```
 
 ## License
-MIT (see `LICENSE`)
+This code is distributed under an [MIT LICENSE](LICENSE).
+
