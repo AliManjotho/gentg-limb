@@ -37,7 +37,7 @@ Video → 2D keypoints → TGT → coarse 3D pose + uncertainty → GPC → refi
 
 ### 1️⃣ Clone and setup environment
 ```bash
-git clone https://github.com/yourname/gentg-limb.git
+git clone https://github.com/AliManjotho/gentg-limb.git
 cd gentg-limb
 pip install -r requirements.txt
 ```
