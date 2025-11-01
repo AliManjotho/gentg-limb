@@ -1,0 +1,15 @@
+# Config override for real-time / low-latency inference
+tgt:
+  window: 81
+
+gpc:
+  enabled: true
+  sampler_steps: 10
+  sigma_threshold: 0.45
+
+dataset:
+  joints: 17
+
+io:
+  save_video: true
+  vis_every: 2

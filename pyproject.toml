@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gentg-limb"
+version = "0.1.0"
+description = "GenTG-Limb: Temporal Graph Transformer + Generative Pose Corrector for monocular 3D human pose"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{name="GenTG-Limb Authors"}]
+license = {text = "MIT"}
+dependencies = []
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+line-length = 100
+select = ["E","F","I","UP","B"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "-q --disable-warnings --maxfail=1"
+testpaths = ["tests"]

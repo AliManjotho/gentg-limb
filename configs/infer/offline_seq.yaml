@@ -1,0 +1,24 @@
+# Inference on pre-extracted sequences (NPZ with k2d, optional conf)
+device: cuda
+save_dir: outputs/infer_offline
+
+dataset:
+  joints: 17
+  camera_model: perspective
+
+tgt:
+  checkpoint: checkpoints/tgt_base.pth
+  window: 155
+  stride: 1
+
+gpc:
+  enabled: true
+  checkpoint: checkpoints/gpc_base.pth
+  sigma_threshold: 0.35
+  sampler_steps: 30
+
+io:
+  input_npz: null         # pass via CLI --input
+  save_npz: true
+  save_video: false
+  vis_every: 1

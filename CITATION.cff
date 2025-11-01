@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "GenTG-Limb: Temporal Graph Transformer + Generative Pose Corrector"
+message: "If you use this repository, please cite both the original manuscript and this implementation."
+type: software
+authors:
+  - family-names: "GenTG-Limb"
+    given-names: "Authors"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/yourname/gentg-limb"
+license: "MIT"
+version: "0.1.0"
+date-released: "2025-10-31"
+keywords:
+  - human pose estimation
+  - 3D pose
+  - transformer
+  - diffusion
+  - graph learning
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "First"
+      given-names: "Author"
+    - family-names: "Second"
+      given-names: "Author"
+  title: "GenTG-Limb: Prior-free monocular 3D human pose via Temporal Graph Transformer and Generative Pose Corrector"
+  year: 2025

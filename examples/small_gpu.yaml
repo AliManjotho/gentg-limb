@@ -1,0 +1,19 @@
+# Override settings for small GPU training (e.g., 8GB cards)
+dataset:
+  window: 81
+  stride: 2
+
+dataloader:
+  batch_size: 8
+  num_workers: 4
+
+model:
+  d_model: 128
+  n_layers: 4
+  n_heads: 4
+
+train:
+  epochs: 60
+
+diffusion:
+  sampler_steps: 15

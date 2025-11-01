@@ -1,0 +1,15 @@
+# Human3.6M dataset configuration
+name: human36m
+root: data/h36m
+joints: 17
+fps: 50
+window: 155
+stride: 1
+camera_model: perspective
+subjects:
+  train: [S1, S5, S6, S7, S8]
+  test: [S9, S11]
+annotations_dir: annotations/
+splits_file: splits/default.json
+keypoints_format: h36m-17
+augmentation: configs/train/aug.yaml

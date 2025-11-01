@@ -1,0 +1,16 @@
+# Logging and checkpoint configuration
+loggers:
+  tensorboard: true
+  wandb:
+    enabled: false
+    entity: null
+    project: gentg-limb
+
+checkpoints:
+  dir: checkpoints
+  keep_last: 5
+  save_best_metric: mpjpe
+
+amp:
+  enabled: true
+  dtype: bfloat16

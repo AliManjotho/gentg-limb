@@ -1,0 +1,24 @@
+# Short-window 'real-time' style inference (latency-optimized)
+device: cuda
+save_dir: outputs/infer_realtime
+
+dataset:
+  joints: 17
+  camera_model: perspective
+
+tgt:
+  checkpoint: checkpoints/tgt_base.pth
+  window: 81
+  stride: 1
+
+gpc:
+  enabled: true
+  checkpoint: checkpoints/gpc_base.pth
+  sigma_threshold: 0.40
+  sampler_steps: 15
+
+stream:
+  source: webcam         # webcam | video | folder
+  resize: [960, 540]
+  fps_limit: 30
+  warmup_frames: 20

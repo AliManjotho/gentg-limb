@@ -1,0 +1,15 @@
+# MPI-INF-3DHP dataset configuration
+name: mpi_inf_3dhp
+root: data/mpi_inf_3dhp
+joints: 17
+fps: 25
+window: 27
+stride: 1
+camera_model: weakpersp
+subjects:
+  train: [S1, S2, S3, S4, S5]
+  test: [TS1, TS2, TS3]
+annotations_dir: annotations/
+splits_file: splits/default.json
+keypoints_format: mpi-17
+augmentation: configs/train/aug.yaml

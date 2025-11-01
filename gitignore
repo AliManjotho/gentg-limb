@@ -1,0 +1,42 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyo
+*.swp
+.ipynb_checkpoints/
+
+# Virtual env
+.venv/
+env/
+venv/
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+
+# Data & artifacts
+data/cache/
+data/*.npz
+outputs/
+checkpoints/
+runs/
+wandb/
+tensorboard/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Notebooks
+*.nb.html
+
+# Logs
+logs/
+*.log

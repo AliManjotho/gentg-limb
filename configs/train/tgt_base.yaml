@@ -1,0 +1,74 @@
+# Temporal Graph Transformer (TGT) training config
+seed: 42
+output_dir: outputs/tgt_base
+precision: amp_bf16   # 'fp32' | 'amp_fp16' | 'amp_bf16'
+
+dataset:
+  name: human36m
+  root: data/h36m
+  joints: 17
+  window: 155          # large temporal context for TGT
+  stride: 1
+  train_split: train
+  val_split: val
+  camera_model: perspective
+  augment:
+    flip_prob: 0.5
+    rotate_deg: 30
+    scale_jitter: 0.1
+    noise_std: 1.5
+
+dataloader:
+  batch_size: 16
+  num_workers: 8
+  pin_memory: true
+
+model:
+  type: TGT
+  d_model: 256
+  n_heads: 8
+  n_layers: 6
+  ff_mult: 4
+  dropout: 0.1
+  tokenization:
+    use_joint_tokens: true
+    use_limb_tokens: true
+    limb_definition: "datasets/kinematics.py::DEFAULT_LIMBS"
+  temporal_encoding:
+    type: relative
+  heads:
+    predict_xyz: true
+    predict_sigma: true
+
+loss:
+  mpjpe_weight: 1.0
+  reproj_weight: 1.0
+  limb_len_smooth_weight: 0.25
+  symmetry_weight: 0.25
+
+optimizer:
+  name: adamw
+  lr: 1e-3
+  weight_decay: 0.05
+  betas: [0.9, 0.999]
+
+scheduler:
+  name: cosine
+  warmup_steps: 2500
+  min_lr: 1e-5
+
+train:
+  epochs: 120
+  grad_clip: 1.0
+  ema:
+    enabled: true
+    decay: 0.999
+
+logging:
+  interval: 50
+  eval_interval: 1000
+  checkpoint_interval: 5000
+  tensorboard: true
+  wandb:
+    enabled: false
+    project: gentg-limb

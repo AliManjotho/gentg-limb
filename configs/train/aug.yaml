@@ -1,0 +1,23 @@
+# Data augmentation configuration for GenTG-Limb training
+
+# 2D augmentation
+flip_prob: 0.5          # horizontal flip probability
+rotate_deg: 30          # max random rotation in degrees
+scale_jitter: 0.1       # scale variation (±10%)
+translate_px: 20        # pixel translation jitter
+noise_std: 1.5          # Gaussian noise std for keypoints
+occlusion_prob: 0.05    # probability of random joint dropout
+
+# 3D augmentation
+temporal_shift: 2       # random frame shift for temporal jittering
+temporal_reverse_prob: 0.05  # reverse small segments with this probability
+depth_jitter_std: 5.0   # add Gaussian noise to Z dimension (mm)
+limb_scale_jitter: 0.03 # limb length scaling noise
+
+# Normalization
+normalize_2d: true
+normalize_3d_root: true
+
+# Advanced (for ablations)
+mixup_prob: 0.0
+cutmix_prob: 0.0

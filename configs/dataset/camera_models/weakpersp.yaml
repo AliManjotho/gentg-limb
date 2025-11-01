@@ -1,0 +1,11 @@
+# Weak-perspective camera model parameters
+model: weakpersp
+params:
+  s: 1000.0
+  tx: 0.0
+  ty: 0.0
+description: >
+  Simplified projection ignoring depth variations.
+  Projects 3D (x, y, z) to 2D (u, v) using:
+    u = s * x + tx
+    v = s * y + ty
