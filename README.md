@@ -149,4 +149,4 @@ year = {2026}
 ---
 
 ## 🛠️ License
-MIT License. See [LICENSE](LICENSE).
+This code is distributed under an [MIT LICENSE](LICENSE).
