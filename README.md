@@ -1,4 +1,4 @@
-# GenTG-Limb (PyTorch)
+# GenTG-Limb: Generative Temporal Graph Transformers for Prior-Free 3D Human Pose
 
 A reference implementation of **GenTG-Limb** — a prior-free monocular 3D human pose pipeline that combines a **Temporal Graph Transformer (TGT)** with a **Generative Pose Corrector (GPC)** based on diffusion.
 
