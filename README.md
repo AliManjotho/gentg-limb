@@ -1,11 +1,11 @@
-# 🧠 GenTG-Limb: Generative Temporal Graph-Limb Transformer for 3D Human Pose Estimation
+# GenTG-Limb: Generative Temporal Graph-Limb Transformer for 3D Human Pose Estimation
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.3%2B-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
-## 🌐 Overview
+## Overview
 
 **GenTG-Limb** is a unified framework for *monocular 3D human pose estimation* that combines:
 - a **Temporal Graph Transformer (TGT)** for deterministic 3D lifting, and  
@@ -22,7 +22,7 @@ Video → 2D keypoints → TGT → coarse 3D pose + uncertainty → GPC → refi
 
 ---
 
-## ✨ Features
+## Features
 
 - Transformer-based 3D lifting using joint + limb tokenization  
 - Diffusion-based refinement guided by uncertainty  
@@ -33,28 +33,28 @@ Video → 2D keypoints → TGT → coarse 3D pose + uncertainty → GPC → refi
 
 ---
 
-## 📦 Installation
+## Installation
 
-### 1️⃣ Clone and setup environment
+### 1️. Clone and setup environment
 ```bash
 git clone https://github.com/AliManjotho/gentg-limb.git
 cd gentg-limb
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Optional dependencies
+### 2️. Optional dependencies
 ```bash
 pip install matplotlib torch-geometric tensorboard
 ```
 
-### 3️⃣ Verify installation
+### 3️. Verify installation
 ```bash
 pytest -q
 ```
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 ```
 gentg-limb/
 ├─ configs/
@@ -71,7 +71,7 @@ gentg-limb/
 
 ---
 
-## 🏋️ Training
+## Training
 ```bash
 python scripts/train_tgt.py --config configs/train/tgt_base.yaml
 python scripts/train_gpc.py --config configs/train/gpc_base.yaml
@@ -80,7 +80,7 @@ python scripts/finetune_e2e.py --config configs/train/e2e_finetune.yaml
 
 ---
 
-## 🎥 Inference
+## Inference
 ```bash
 python scripts/infer.py --config configs/infer/offline_seq.yaml --input data/h36m/sample_seq.npz
 ```
@@ -97,7 +97,7 @@ python scripts/visualize_seq.py --npz outputs/infer_result.npz --out viz/
 ![teaser](assets/qualitative.png)
 
 
-## 📈 Evaluation
+## Evaluation
 ```bash
 python -m metrics.eval_h36m
 ```
@@ -106,7 +106,7 @@ Implements MPJPE, P-MPJPE, 3DPCK, and AUC metrics.
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 All configs are YAML-based.
 
 ### Dataset
@@ -155,7 +155,7 @@ All configs are YAML-based.
 
 ---
 
-## 🧪 Testing
+## Testing
 ```bash
 pytest -v
 ```
@@ -164,7 +164,7 @@ Covers models, losses, metrics, and data pipelines.
 
 ---
 
-## 📘 Notebooks
+## Notebooks
 | Notebook | Purpose |
 |-----------|----------|
 | 00_quickstart.ipynb | Run a demo |
@@ -175,7 +175,7 @@ Covers models, losses, metrics, and data pipelines.
 
 ---
 
-## 🧮 Citation
+## Citation
 ```bibtex
 @inproceedings{memon2025gentglimb,
 author = {Anam Memon and Qasim Ali Arain and Nasrullah Pirzada and Muhammad Akram Shaikh and Ali Asghar Manjotho},
@@ -189,5 +189,5 @@ year = {2026}
 
 ---
 
-## 🛠️ License
+## License
 This code is distributed under an [MIT LICENSE](LICENSE).
